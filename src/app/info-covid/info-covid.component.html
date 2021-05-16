@@ -1,0 +1,196 @@
+<!-- BARRA DE NAVEGAÇÃO-->
+<nav class="navbar navbar-expand-md navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/home']">INFO-COVID</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-5">
+        <li class="nav-item">
+          <a class="nav-link " [routerLink]="['/home']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/infocovid']">InfoCovid-19</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<app-header></app-header>
+
+<!-- TABLE INFO GLOBAL -->
+<div class="infocovid container-fluid">
+  <h5 class="infocovid__title">Informações sobre o COVID-19 no Mundo</h5>
+  <table class="infocovid__table table table-responsive table-info table-striped table-bordered border-primary">
+    <thead>
+      <tr>
+        <th scope="col">Novos casos confirmados</th>
+        <th scope="col">Total de casos confirmados</th>
+        <th scope="col">Novas mortes</th>
+        <th scope="col">Total de mortes</th>
+        <th scope="col">Recuperados</th>
+        <th scope="col">Total de recuperados</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="infocovid__table--blue">{{apiGlobal.NewConfirmed | number}}</td>
+        <td>{{apiGlobal.TotalConfirmed | number}}</td>
+        <td>{{apiGlobal.NewDeaths | number}}</td>
+        <td class="infocovid__table--black">{{apiGlobal.TotalDeaths | number}}</td>
+        <td>{{apiGlobal.NewRecovered |number}}</td>
+        <td class="infocovid__table--green">{{apiGlobal.TotalRecovered |number}}</td>
+      </tr>
+    </tbody>
+    <div class="card-footer">
+      <small class="text-muted">Data de atualização: {{apiGlobal.Date | date}}</small>
+    </div>
+  </table>
+</div>
+
+<!-- PESQUISA -->
+<!-- TODO AJUSTAR AS PESQUISAS?? -->
+<div class="container-fluid">
+  <hr class="line">
+  <div class="searching">
+    <label for="search" (mouseenter)="showOn()">Escolha o País:</label>
+    <input class="searching--margin" type="search" placeholder="Search" aria-label="Search"
+      [(ngModel)]="infoScreenInput" (ngModelChange)="foundItem()" (mouseenter)="showOn()">
+  </div>
+  <hr class="line">
+</div>
+
+<!-- ALERTA DE INPUT INFO -->
+<div class="mouse-alert alert alert-primary" role="alert" *ngIf="showsAlert==true">
+  Escreva o nome do país em letras maiúsculas ou minúsculas, em<span class="mouse-alert__red"> Inglês</span>, para obter
+  mais informações sobre
+  COVID-19.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<!-- TABLE APARECE QUANDO PESQUISA -->
+<div class="showtable container-fluid" *ngIf="infoScreenInput.length>0;else cardInfoP">
+  <div *ngFor="let item of apiCountriesFiltro">
+    <h4 class="showtable__title--black">{{item.Country | uppercase}}</h4>
+    <table class="showtable__table table table-responsive table-striped table-info table-bordered border-primary">
+      <thead>
+        <tr>
+          <th scope="col">Código do país</th>
+          <th scope="col">Slug</th>
+          <th scope="col">Novos casos confirmados</th>
+          <th scope="col">Total de casos confirmados</th>
+          <th scope="col">Novas mortes</th>
+          <th scope="col">Total de mortes</th>
+          <th scope="col">Recuperados</th>
+          <th scope="col">Total de recuperados</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{item.CountryCode}}</td>
+          <td>{{item.Slug}}</td>
+          <td class="showtable__table--blue">{{item.NewConfirmed | number}}</td>
+          <td>{{item.TotalConfirmed | number}}</td>
+          <td>{{item.NewDeaths | number}}</td>
+          <td class="showtable__table--black">{{item.TotalDeaths |number}}</td>
+          <td>{{item.NewRecovered |number}}</td>
+          <td class="showtable__table--green">{{item.TotalRecovered |number}}</td>
+        </tr>
+      </tbody>
+      <div class="card-footer">
+        <small class="text-muted">Data de atualização: {{item.Date | date}}</small>
+      </div>
+    </table>
+  </div>
+</div>
+
+<!-- CARD INFO PAÍS -->
+<ng-template #cardInfoP>
+  <div class="countrycards container-fluid">
+    <div class="countrycards__line row">
+      <div class="countrycards__style card border-dark col-md-4" *ngFor="let item of apiCountriesPaginacao">
+        <div class="countrycards__title--black card-header">{{item.Country | uppercase}}</div>
+        <div class="card-body">
+          <ul class="countrycards__list">
+            <li>Código do país: {{item.CountryCode}}</li>
+            <li>Total de casos confirmados: {{item.TotalConfirmed | number}}</li>
+            <li>Total de mortes: <span class="countrycards__item--black">{{item.TotalDeaths | number}}</span></li>
+            <li>Recuperados: <span class="countrycards__item--green">{{item.NewRecovered | number}}</span></li>
+          </ul>
+
+          <button class="countrycardsbtn btn btn-dark" type="button" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop" (click)='ApiCovidNova(item.Country)'>
+            Mais Informações </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- MODAL -->
+<div class="moreinfo modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true" *ngFor="let item of apiCountriesPaginacao">
+  <div class=" modal-dialog modal-dialog-scrollable">
+    <div class="moreinfo--color modal-content">
+      <div class="modal-header">
+        <h5 class=" moreinfo__title--black modal-title" id="staticBackdropLabel">PAÍS: {{apiMais.country}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="moreinfo__text--black">Sobre o País:</p>
+        <ul class="moreinfo__list">
+          <li>population: {{apiMais.population}}</li>
+          <li> sq_km_area: {{apiMais.sq_km_area}}</li>
+          <li> life_expectancy: {{apiMais.life_expectancy}}</li>
+          <li> continent: {{apiMais.continent}}</li>
+          <li> location: {{apiMais.location}}</li>
+          <li> capital_city: {{apiMais.capital_city}}</li>
+        </ul>
+        <p class="moreinfo__text--black">Sobre a Vacina no País</p>
+        <ul class="moreinfo__list">
+          <li>administered: {{apiMaisVaccine.administered}}</li>
+          <li> people_vaccinated: {{apiMaisVaccine.people_partially_vaccinated}}</li>
+          <li> people_partially_vaccinated: {{apiMaisVaccine.people_partially_vaccinated}}</li>
+        </ul>
+        <div class="card-footer">
+          <small class="text">Data de atualização: {{item.Date | date}}</small>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGINAÇÃO -->
+<!-- TODO AJUSTAR PAGINAÇÃO -->
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">4</a></li>
+    <li class="page-item"><a class="page-link" href="#">5</a></li>
+    <li class="page-item"><a class="page-link" href="#">6</a></li>
+    <li class="page-item"><a class="page-link" href="#">7</a></li>
+    <li class="page-item"><a class="page-link" href="#">8</a></li>
+    <li class="page-item"><a class="page-link" href="#">9</a></li>
+    <li class="page-item"><a class="page-link" href="#">10</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+
+<!-- FOOTER -->
+<!-- TODO AJUSTAR FOOTER -->
+<footer class="navbar navbar-dark ">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/home']">InfoCovid</a>
+  </div>
+</footer>

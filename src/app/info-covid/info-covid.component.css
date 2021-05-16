@@ -1,0 +1,148 @@
+/* TABLE INFO GLOBAL */
+.infocovid {
+  margin-top: 2%;
+}
+
+.infocovid__title {
+  color: red;
+  font-weight: bold;
+}
+
+/* TABLE INFO GLOBAL - CORES DOS NUMEROS API */
+.infocovid__table--blue {
+  color: rgb(5, 17, 128);
+  text-decoration: underline;
+}
+
+.infocovid__table--black {
+  color: rgba(0, 0, 0, 0.699);
+  text-decoration: underline;
+}
+
+.infocovid__table--green {
+  color: rgb(3, 170, 3);
+  text-decoration: underline;
+}
+
+/* PESQUISA INPUT */
+.searching {
+  margin-left: 1%;
+}
+
+.searching--margin {
+  margin-left: 0.5%;
+}
+
+.line {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent, #CCC, transparent);
+}
+
+/* ALERTA DE INPUT INFO */
+
+.mouse-alert__red {
+  color: red;
+  text-decoration: underline;
+}
+
+/* TABLE APARECE QUANDO PESQUISA */
+.showtable {
+  margin-top: 2%;
+}
+
+.showtable__title--black {
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+
+/* TABLE APARECE QUANDO PESQUISA - CORES DOS NUMEROS API */
+.showtable__table--blue {
+  color: rgb(5, 17, 128);
+  text-decoration: underline;
+}
+
+.showtable__table--black {
+  color: rgba(0, 0, 0, 0.699);
+  text-decoration: underline;
+}
+
+.showtable__table--green {
+  color: rgb(3, 170, 3);
+  text-decoration: underline;
+}
+
+/* CARD INFO PAÍS  */
+.countrycards__style {
+  background-color: #595959;
+  color: white;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  max-width: 18rem;
+}
+
+.countrycards__line {
+  justify-content: space-around;
+}
+
+.countrycards__title--black {
+  color: black
+}
+
+.countrycards__list li::before {
+  content: "•";
+  color: black;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em
+}
+
+/* CARD INFO PAÍS - CORES DOS NUMEROS API */
+
+.countrycards__item--black {
+  color: rgba(0, 0, 0, 0.699);
+  text-decoration: underline;
+}
+
+.countrycards__item--green {
+  color: rgb(3, 170, 3);
+  text-decoration: underline;
+}
+
+.countrycardsbtn {
+  margin-left: 16.5%;
+}
+
+/* MODAL */
+.moreinfo--color {
+  background-color: #595959;
+  color: white;
+
+}
+
+.moreinfo__title--black {
+  color: black;
+  font-weight: bold;
+}
+
+.moreinfo__text--black {
+  color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+.moreinfo__list li::before {
+  content: "•";
+  color: black;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em
+}
+
+/* PAGINAÇÃO  */
+.pagination {
+  justify-content: center;
+}
