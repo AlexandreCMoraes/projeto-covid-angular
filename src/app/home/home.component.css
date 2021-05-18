@@ -1,6 +1,5 @@
 /* TEXTO 4 DIV'S  */
-
-.main__info {
+.main{
   background-color: #595959;
   color: white;
   justify-content: space-around;
@@ -37,8 +36,7 @@
 }
 
 /* TEXTO ROW */
-
-.mainrow__info {
+.mainrow {
   background-color: #595959;
   color: white;
   justify-content: space-around;
@@ -75,19 +73,19 @@
 }
 
 /* FOOTER */
-.footer {
+.endpage {
   background-color: #595959;
   color: white;
   justify-content: space-around;
   margin-top: 1%;
 }
 
-.footer__title {
+.endpage__title {
   color: rgb(0, 0, 0);
   font-weight: bold;
   text-decoration: underline;
 }
 
-.footer__button--margin {
+.endpage__button--margin {
   margin-left: 1%;
 }

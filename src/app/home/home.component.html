@@ -1,84 +1,65 @@
 <!-- BARRA DE NAVEGAÇÃO-->
-<nav class="navbar navbar-expand-md navbar-dark ">
-  <div class="container-fluid">
-    <a class="navbar-brand" [routerLink]="['/home']">INFO-COVID</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-md-0 ml-5">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/home']">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " [routerLink]="['/infocovid']">InfoCovid-19</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<app-navbar></app-navbar>
 
 <!-- HEADER -->
 <app-header></app-header>
 
 <!-- TEXTO 4 DIV'S -->
-<div class="main container-fluid">
-  <div class="row">
-    <div class="main__info card col-md-6">
-      <h4 class="main__title--black">Sobre</h4>
-      <p class="main__text card-text">
-        A doença do coronavírus (<span class="main__text--red">COVID-19</span>) é uma doença infecciosa causada por um
-        coronavírus recém-descoberto.
-        A maioria das pessoas que adoece em decorrência da <span class="main__text--red">COVID-19</span> apresentará
-        sintomas leves a moderados e se recuperará
-        sem
-        tratamento especial.
-      </p>
-      <h5 class="main__title--black">Como o vírus se espalha</h5>
-      <p class="main__text card-text">
-        O vírus que causa a <span class="main__text--red">COVID-19</span> é transmitido principalmente por meio de
-        gotículas
-        geradas quando uma
-        pessoa infectada tosse, espirra ou exala. Essas gotículas são muito pesadas para permanecerem no ar e são
-        rapidamente depositadas em
-        pisos ou superfícies.
-        Você pode ser infectado ao inalar o vírus se estiver próximo de alguém que tenha <span
-          class="main__text--red">COVID-19</span> ou ao
-        tocar
-        em uma
-        superfície contaminada e, em seguida, passar as mãos nos olhos, no nariz ou na boca.
-      </p>
-    </div>
-
-    <!-- TEXTO 4 DIV'S -->
-    <div class="main__info card col-md-6">
-      <h6 class="main__title--black">Sintomas comuns:</h6>
-      <ul class="main__list">
-        <li>febre;</li>
-        <li>tosse seca;</li>
-        <li>cansaço.</li>
-      </ul>
-      <h6 class="main__title--black">Sintomas menos comuns:</h6>
-      <ul class="main__list">
-        <li>dores e desconfortos;</li>
-        <li>dor de garganta;</li>
-        <li>diarreia</li>
-        <li>conjuntivite;</li>
-        <li>dor de cabeça;</li>
-        <li>perda de paladar ou olfato;</li>
-        <li>erupção cutânea na pele ou descoloração dos dedos das mãos ou dos pés.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- TEXTO 4 DIV'S -->
-  <div class="main">
+<main>
+  <div class="container-fluid">
     <div class="row">
-      <div class="main__info card col-md-6">
+      <section class="main card col-md-6">
+        <h4 class="main__title--black">Sobre</h4>
+        <p class="main__text card-text">
+          A doença do coronavírus (<span class="main__text--red">COVID-19</span>) é uma doença infecciosa causada por um
+          coronavírus recém-descoberto.
+          A maioria das pessoas que adoece em decorrência da <span class="main__text--red">COVID-19</span> apresentará
+          sintomas leves a moderados e se recuperará
+          sem
+          tratamento especial.
+        </p>
+        <h5 class="main__title--black">Como o vírus se espalha</h5>
+        <p class="main__text card-text">
+          O vírus que causa a <span class="main__text--red">COVID-19</span> é transmitido principalmente por meio de
+          gotículas
+          geradas quando uma
+          pessoa infectada tosse, espirra ou exala. Essas gotículas são muito pesadas para permanecerem no ar e são
+          rapidamente depositadas em
+          pisos ou superfícies.
+          Você pode ser infectado ao inalar o vírus se estiver próximo de alguém que tenha <span
+            class="main__text--red">COVID-19</span> ou ao
+          tocar
+          em uma
+          superfície contaminada e, em seguida, passar as mãos nos olhos, no nariz ou na boca.
+        </p>
+      </section>
+      <!-- TEXTO 4 DIV'S -->
+      <section class="main card col-md-6">
+        <h6 class="main__title--black">Sintomas comuns:</h6>
+        <ul class="main__list">
+          <li>febre;</li>
+          <li>tosse seca;</li>
+          <li>cansaço.</li>
+        </ul>
+        <h6 class="main__title--black">Sintomas menos comuns:</h6>
+        <ul class="main__list">
+          <li>dores e desconfortos;</li>
+          <li>dor de garganta;</li>
+          <li>diarreia</li>
+          <li>conjuntivite;</li>
+          <li>dor de cabeça;</li>
+          <li>perda de paladar ou olfato;</li>
+          <li>erupção cutânea na pele ou descoloração dos dedos das mãos ou dos pés.</li>
+        </ul>
+      </section>
+    </div>
+    <!-- TEXTO 4 DIV'S -->
+    <div class="row">
+      <section class="main card col-md-6">
         <h5 class="main__title--black">Prevenção</h5>
         <p class="main__text card-text">
-          Proteja a si mesmo e as pessoas ao seu redor conhecendo os fatos e tomando as precauções apropriadas. Siga os
+          Proteja a si mesmo e as pessoas ao seu redor conhecendo os fatos e tomando as precauções apropriadas. Siga
+          os
           conselhos da autoridade local de saúde. </p>
         <p>Para evitar a propagação da <span class="main__text--red">COVID-19</span>, faça o seguinte:</p>
         <ul class="main__list">
@@ -101,14 +82,14 @@
           pessoas.
           Isoladamente, as máscaras
           não
-          são uma proteção contra a <span class="main__text--red">COVID-19</span>, e o uso delas deve ser combinado com
+          são uma proteção contra a <span class="main__text--red">COVID-19</span>, e o uso delas deve ser combinado
+          com
           o
           distanciamento físico e a limpeza das mãos. Siga as orientações da autoridade local de saúde.
         </p>
-      </div>
-
+      </section>
       <!-- TEXTO 4 DIV'S -->
-      <div class="main__info card col-md-6">
+      <section class="main card col-md-6">
         <h5 class="main__title--black">Autocuidados</h5>
         <p class="main__text card-text">
           Após a exposição a uma pessoa com <span class="main__text--red">COVID-19</span>, siga estas orientações:
@@ -142,18 +123,16 @@
             dificuldade para respirar, perda da fala ou da mobilidade, confusão ou dores no peito.
           </li>
           <li>
-            Mantenha contato com seus entes queridos por telefone ou on-line e faça exercícios para manter o pensamento
+            Mantenha contato com seus entes queridos por telefone ou on-line e faça exercícios para manter o
+            pensamento
             positivo.
           </li>
         </ul>
-      </div>
+      </section>
     </div>
-  </div>
-
-  <!-- TEXTO ROW -->
-  <div class="mainrow">
+    <!-- TEXTO ROW -->
     <div class="row">
-      <div class="mainrow__info card col-md">
+      <section class="mainrow card col-md">
         <h5 class="mainrow__title--black">Tratamentos médicos</h5>
         <p class="mainrow__text card-text">Cientistas do mundo todo estão trabalhando para encontrar e desenvolver
           tratamentos para a
@@ -171,27 +150,35 @@
             antibióticos, como
             prevenção ou cura da <span class="mainrow__text--red">COVID-19</span>.</span>
         </p>
-      </div>
+      </section>
     </div>
   </div>
-</div>
+</main>
 
 <!-- FOOTER -->
-<div class="footer card container-fluid">
-  <div class="card-body">
-    <h5 class="footer__title">Sobre o conteúdo
-    </h5>
-    <p class="card-text">As informações utlizadas foram retiradas do site World Health Organization. Lembrando que este
-      projeto é apenas para estudo próprio de Angular, API, HTML, CSS, TypeScript e outros. Basta clicar no primeiro
-      botão e você será direcionado direto ao conteúdo do site. A API utilizada foi retirada do site GitHub do item
-      "Health",
-      segundo botão. Site da API, terceiro botão. Site da segunda API, quarto botão</p>
-    <a class="footer__button btn btn-dark"
-      href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/coronavirus-disease-covid-19#:~:text=symptoms"
-      target="_blank">World Health Organization</a>
-    <a class="footer__button--margin btn btn-dark" href="https://github.com/public-apis/public-apis"
-      target="_blank">Public API</a>
-    <a class="footer__button--margin btn btn-dark" href="https://covid19api.com/" target="_blank">Covid API</a>
-    <a class="footer__button--margin btn btn-dark" href="https://github.com/M-Media-Group/Covid-19-API" target="_blank">Covid-19-API</a>
+<footer>
+  <div class="endpage card container-fluid">
+    <article class="card-body">
+      <h5 class="endpage__title">Sobre o conteúdo
+      </h5>
+      <p class="card-text">As informações utlizadas foram retiradas do site World Health Organization. Lembrando que este
+        projeto é apenas para estudo próprio de Angular, API, HTML, CSS, TypeScript e outros. Basta clicar no primeiro
+        botão e você será direcionado direto ao conteúdo do site. A API utilizada foi retirada do site GitHub do item
+        "Health",
+        segundo botão. Site da API, terceiro botão. Site da segunda API, quarto botão</p>
+      <a class="endpage__button btn btn-dark"
+        href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/coronavirus-disease-covid-19#:~:text=symptoms"
+        target="_blank" rel="external">World Health Organization</a>
+      <a class="endpage__button--margin btn btn-dark" href="https://github.com/public-apis/public-apis" target="_blank"
+        rel="external">Public API</a>
+      <a class="endpage__button--margin btn btn-dark" href="https://covid19api.com/" target="_blank" rel="external">Covid
+        API</a>
+      <a class="endpage__button--margin btn btn-dark" href="https://github.com/M-Media-Group/Covid-19-API" target="_blank"
+        rel="external">Covid-19-API</a>
+      <a class="endpage__button--margin btn btn-success" href="https://github.com/AlexandreCMoraes" target="_blank"
+        rel="external">GitHub</a>
+      <a class="endpage__button--margin btn btn-success"
+        href="http://www.linkedin.com/in/alexandre-de-carvalho-moraes-48143a1a3" target="_blank">LinkdIn</a>
+    </article>
   </div>
-</div>
+</footer>
