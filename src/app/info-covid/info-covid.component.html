@@ -5,9 +5,9 @@
 <app-header></app-header>
 
 <!-- TABLE INFO GLOBAL -->
-<div class="infocovid container-fluid">
+<div class="infocovid container-fluid table-responsive-md ">
   <h5 class="infocovid__title">Informações sobre o COVID-19 no Mundo</h5>
-  <table class="infocovid__table table table-responsive table-info table-striped table-bordered border-primary">
+  <table class="infocovid__table table table-info table-striped table-bordered border-primary">
     <thead>
       <tr>
         <th scope="col">Novos casos confirmados</th>
@@ -39,16 +39,28 @@
   <hr class="line">
   <div class="searching col-md-6">
     <div class="searchingdata">
-      <label for="search" (mouseenter)="showOn()" (mouseleave)="showOff()">Escolha o País:</label>
-      <input class="searching--margin" type="search" placeholder="Search" aria-label="Search"
-        [(ngModel)]="infoScreenInput" (ngModelChange)="foundItem()" (mouseenter)="showOn()" (mouseleave)="showOff()">
+      <label for="search">Escolha o País:</label>
+
+      <input class="searching--margin" list="searchcountry" placeholder="Search" aria-label="Search" name="search"
+        id="search" [(ngModel)]="infoScreenInput" (ngModelChange)="foundItem()">
+      <datalist id="searchcountry">
+        <option *ngFor="let item of apiCountries" value={{item.Country}}>
+      </datalist>
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+        class="searching-icon bi bi-info-square-fill" viewBox="0 0 16 16" (mouseenter)="showOn()"
+        (mouseleave)="showOff()">
+        <path
+          d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.93 4.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+      </svg>
+
     </div>
   </div>
   <hr class="line">
 </div>
 
-<!-- ALERTA DE INPUT INFO -->
-<div class="mouse-alert alert alert-primary" role="alert" *ngIf="showsAlert==true">
+<!-- ALERTA DE INPUT INFO PAIS -->
+<div class="mouse-alert alert alert-primary" role="alert" *ngIf="showsAlertC==true">
   Escreva o nome do país em letras maiúsculas ou minúsculas, em<span class="mouse-alert__red"> Inglês</span>, para
   obter
   mais informações sobre
@@ -60,17 +72,22 @@
 <!-- TODO select estados -->
 <div class="searchingstates col-md-6" *ngIf="infoScreenInput.length>0;">
   <label for="select">Escolha o estado para saber sobre COVID-19 e vacinas:</label>
-  <select>
-    <option value="" selected></option>
-  </select>
+
+  <!-- TODO arrumar procura de estados -->
+  <input class="searching--margin" list="searchstate" placeholder="Search" aria-label="Search" name="search"
+    id="search">
+  <datalist id="searchstate">
+    <option value="Edge">
+  </datalist>
+
   <hr class="line">
 </div>
 
 <!-- TABLE APARECE QUANDO PESQUISA -->
-<div class="showtable container-fluid" *ngIf="infoScreenInput.length>0;else cardInfoP">
+<div class="showtable container-fluid table-responsive-md" *ngIf="infoScreenInput.length>0;else cardInfoP">
   <div *ngFor="let item of apiCountriesFiltro">
     <h4 class="showtable__title--black">{{item.Country}}</h4>
-    <table class="showtable__table table table-responsive table-striped table-info table-bordered border-primary">
+    <table class="showtable__table table table-striped table-info table-bordered border-primary">
       <thead>
         <tr>
           <th scope="col">Código do país</th>
@@ -100,7 +117,7 @@
       </div>
     </table>
 
-    <div class="showtable-button text-center">
+    <div class="showtable-button--margin text-center">
       <button class="btn btn-dark" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
         (click)='ApiCovidNova(item.Country)'>Mais informações</button>
     </div>
@@ -167,12 +184,11 @@
 </div>
 
 <!-- PAGINAÇÃO -->
-<!-- TODO arrumar -->
 <div class="buttonpage text-center " *ngIf="carregarMais && infoScreenInput.length==0; else fimpag">
   <button class="buttonpage--style btn btn-dark" (click)="carrega()">Carregar Mais</button>
 </div>
 <!-- PAGINAÇÃO TEXTO -->
-<ng-template  #fimpag>
+<ng-template #fimpag>
   <h5 *ngIf="infoScreenInput.length==0" class=" pagtext">Não há mais dados para serem carregados.</h5>
 </ng-template>
 

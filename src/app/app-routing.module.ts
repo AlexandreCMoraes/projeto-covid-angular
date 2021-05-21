@@ -2,20 +2,25 @@ import { InfoCovidComponent } from './info-covid/info-covid.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageErrorComponent } from './page-error/page-error.component';
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo:"/home",
-    pathMatch:"full"
+    redirectTo: "/home",
+    pathMatch: "full"
   },
   {
-    path:"home",
+    path: "home",
     component: HomeComponent
   },
   {
-    path:"infocovid",
+    path: "infocovid",
     component: InfoCovidComponent
+  },
+  {
+    path: '**',
+    component: PageErrorComponent
   }
 ];
 

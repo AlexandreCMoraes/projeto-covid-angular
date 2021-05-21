@@ -10,6 +10,7 @@ import { InfoCovidComponent } from './info-covid/info-covid.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PageErrorComponent } from './page-error/page-error.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     HomeComponent,
     InfoCovidComponent,
     HeaderComponent,
-    NavbarComponent
+    NavbarComponent,
+    PageErrorComponent
   ],
   imports: [
     BrowserModule,

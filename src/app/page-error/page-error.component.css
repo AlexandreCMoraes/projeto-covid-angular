@@ -1,0 +1,71 @@
+section {
+  margin-top: 3%;
+  text-align: center;
+}
+
+.error-icon {
+  margin-bottom: 4%;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: red;
+  transition: 0.5s ease-in-out;
+}
+
+h1,
+h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #262626;
+}
+
+h1 {
+  animation: opacity 3s ease-in-out infinite;
+  color: red;
+  opacity: 1;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+h3 {
+  color: #262626;
+  font-size: 2rem;
+}
+
+seletor {
+  transition: x;
+  /* lida por navegadores modernos */
+  -moz-transition: x;
+  /* para Mozilla antigo */
+  -o-transition: x;
+  /* para Opera antigo */
+  -webkit-transition: x
+    /* para Chrome e similares antigos */
+}

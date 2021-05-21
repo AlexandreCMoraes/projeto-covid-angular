@@ -41,7 +41,8 @@ export class InfoCovidComponent implements OnInit {
         // traz a qtd de 20 itens na tela
         if (index <= 19) {
           this.apiCountriesPaginacao.push(data);
-        } else {
+        }
+        else {
           return;
         }
       })
@@ -65,15 +66,15 @@ export class InfoCovidComponent implements OnInit {
   }
 
   /* mostra aviso quando mouse passa em label e input quando digita pra pesquisar por pais */
-  showsAlert: boolean = false;
+  showsAlertC: boolean = false;
 
   public showOn() {
-    this.showsAlert = true;
+    this.showsAlertC = true;
     // console.log("Passou");
   }
   public showOff() {
     setTimeout(() => {
-      this.showsAlert = false;
+      this.showsAlertC = false;
     }, 15000);
     // console.log("Passou");
   }
