@@ -9,3 +9,15 @@ body {
 ul {
   list-style: none;
 }
+
+/* TODO verificar se pode ficar aqui */
+seletor {
+  transition: x;
+  /* lida por navegadores modernos */
+  -moz-transition: x;
+  /* para Mozilla antigo */
+  -o-transition: x;
+  /* para Opera antigo */
+  -webkit-transition: x
+    /* para Chrome e similares antigos */
+}

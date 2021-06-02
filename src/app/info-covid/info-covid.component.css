@@ -29,15 +29,15 @@
   margin-bottom: 1%;
 }
 
-.searchingdata {
+.searching__data {
   margin-left: 1%;
 }
 
-.searching--margin {
+.searching__input--margin {
   margin-left: 0.5%;
 }
 
-.searching--margin:focus {
+.searching__input--margin:focus {
   background: #CCC;
   -webkit-transition: 0.5s ease-in;
   -moz-transition: 0.5s ease-in;
@@ -46,11 +46,11 @@
 }
 
 /* PESQUISA POR PAÍS - ICON  */
-.searching-icon {
+.searching__icon {
   margin-left: 1%;
 }
 
-.searching-icon:hover {
+.searching__icon:hover {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
@@ -64,6 +64,7 @@
 }
 
 /* ALERTA DE INPUT INFO */
+
 /* .mouse-alert {
   -webkit-animation-delay: 3s;
   -moz-animation-delay: 3s;
@@ -77,44 +78,48 @@
 }
 
 /* SELECT PARA ESTADOS */
-.searchingstates {
+.searching-states {
   margin-bottom: 1%;
   margin-left: 1%;
 }
 
 /* TABLE APARECE QUANDO PESQUISA */
-.showtable {
+.show-table {
   margin-top: 2%;
 }
 
-.showtable__title--black {
+.show-table__title--black {
   text-align: center;
   color: black;
   font-weight: bold;
 }
 
-.showtable-button--margin {
+.show-table-button--margin {
   margin-bottom: 1%;
 }
 
 /* TABLE APARECE QUANDO PESQUISA - CORES DOS NUMEROS API */
-.showtable__table--blue {
+.show-table__table--blue {
   color: rgb(5, 17, 128);
   text-decoration: underline;
 }
 
-.showtable__table--black {
+.show-table__table--black {
   color: rgba(0, 0, 0, 0.699);
   text-decoration: underline;
 }
 
-.showtable__table--green {
+.show-table__table--green {
   color: rgb(3, 170, 3);
   text-decoration: underline;
 }
 
 /* CARD INFO PAÍS  */
-.countrycards__style {
+.country-cards__line {
+  justify-content: space-around;
+}
+
+.country-cards__style {
   background-color: #595959;
   color: white;
   margin-top: 2%;
@@ -122,22 +127,18 @@
   max-width: 18rem;
 }
 
-.countrycards__style:hover {
+.country-cards__style:hover {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
   transition: 0.8s;
 }
 
-.countrycards__line {
-  justify-content: space-around;
-}
-
-.countrycards__title--black {
+.country-cards__title--black {
   color: black
 }
 
-.countrycards__list li::before {
+.country-cards__list li::before {
   content: "•";
   color: black;
   display: inline-block;
@@ -146,40 +147,41 @@
 }
 
 /* CARD INFO PAÍS - CORES DOS NUMEROS API */
-.countrycards__item--black {
+.country-cards__item--black {
   color: rgba(0, 0, 0, 0.699);
   text-decoration: underline;
 }
 
-.countrycards__item--green {
+.country-cards__item--green {
   color: rgb(3, 170, 3);
   text-decoration: underline;
 }
 
-.countrycardsbtn {
+.country-cards__btn {
   margin-left: 16.5%;
 }
 
 /* MODAL */
-.moreinfo--color {
+.more-info__style {
   background-color: #595959;
   color: white;
 }
 
-.moreinfo__title--black {
+.more-info__title--black {
   color: black;
   font-weight: bold;
 }
 
-.moreinfo__text--black {
+.more-info__text--black {
   color: black;
 }
 
+/* TODO verificar  se precisa da classe "more-info__list" ou ul somente */
 ul {
   list-style: none;
 }
 
-.moreinfo__list li::before {
+.more-info__list li::before {
   content: "•";
   color: black;
   display: inline-block;
@@ -188,13 +190,17 @@ ul {
 }
 
 /* PAGINAÇÃO */
-.buttonpage--style {
+.button-page {
+  text-align: center;
+}
+
+.button-page__style {
   margin-top: 1%;
   margin-bottom: 1%;
 }
 
 /* PAGINAÇÃO TEXTO */
-.pagtext {
+.pag-text {
   margin-top: 1%;
   margin-bottom: 1%;
   font-style: oblique;
@@ -203,7 +209,7 @@ ul {
 }
 
 /* FOOTER */
-.footerinfo {
+.footer-info {
   background-color: #262626;
 }
 

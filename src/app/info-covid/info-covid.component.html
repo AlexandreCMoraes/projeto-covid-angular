@@ -38,17 +38,16 @@
 <div class="container-fluid">
   <hr class="line">
   <div class="searching col-md-6">
-    <div class="searchingdata">
+    <div class="searching__data">
       <label for="search">Escolha o País:</label>
-
-      <input class="searching--margin" list="searchcountry" placeholder="Search" aria-label="Search" name="search"
-        id="search" [(ngModel)]="infoScreenInput" (ngModelChange)="foundItem()">
+      <input class="searching__input--margin" list="searchcountry" placeholder="Search" aria-label="Search"
+        name="search" id="search" [(ngModel)]="infoScreenInput" (ngModelChange)="foundItem()">
       <datalist id="searchcountry">
         <option *ngFor="let item of apiCountries" value={{item.Country}}>
       </datalist>
 
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-        class="searching-icon bi bi-info-square-fill" viewBox="0 0 16 16" (mouseenter)="showOn()"
+        class="searching__icon bi bi-info-square-fill" viewBox="0 0 16 16" (mouseenter)="showOn()"
         (mouseleave)="showOff()">
         <path
           d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.93 4.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
@@ -70,11 +69,10 @@
 
 <!-- SELECT PARA ESTADOS -->
 <!-- TODO select estados -->
-<div class="searchingstates col-md-6" *ngIf="infoScreenInput.length>0;">
+<div class="searching-states col-md-6" *ngIf="infoScreenInput.length>0;">
   <label for="select">Escolha o estado para saber sobre COVID-19 e vacinas:</label>
-
   <!-- TODO arrumar procura de estados -->
-  <input class="searching--margin" list="searchstate" placeholder="Search" aria-label="Search" name="search"
+  <input class="searching__input--margin" list="searchstate" placeholder="Search" aria-label="Search" name="search"
     id="search">
   <datalist id="searchstate">
     <option value="Edge">
@@ -84,10 +82,10 @@
 </div>
 
 <!-- TABLE APARECE QUANDO PESQUISA -->
-<div class="showtable container-fluid table-responsive-md" *ngIf="infoScreenInput.length>0;else cardInfoP">
+<div class="show-table container-fluid table-responsive-md" *ngIf="infoScreenInput.length>0;else cardInfoP">
   <div *ngFor="let item of apiCountriesFiltro">
-    <h4 class="showtable__title--black">{{item.Country}}</h4>
-    <table class="showtable__table table table-striped table-info table-bordered border-primary">
+    <h4 class="show-table__title--black">{{item.Country}}</h4>
+    <table class="show-table__table table table-striped table-info table-bordered border-primary">
       <thead>
         <tr>
           <th scope="col">Código do país</th>
@@ -104,20 +102,20 @@
         <tr>
           <td>{{item.CountryCode}}</td>
           <td>{{item.Slug}}</td>
-          <td class="showtable__table--blue">{{item.NewConfirmed | number}}</td>
+          <td class="show-table__table--blue">{{item.NewConfirmed | number}}</td>
           <td>{{item.TotalConfirmed | number}}</td>
           <td>{{item.NewDeaths | number}}</td>
-          <td class="showtable__table--black">{{item.TotalDeaths |number}}</td>
+          <td class="show-table__table--black">{{item.TotalDeaths |number}}</td>
           <td>{{item.NewRecovered |number}}</td>
-          <td class="showtable__table--green">{{item.TotalRecovered |number}}</td>
+          <td class="show-table__table--green">{{item.TotalRecovered |number}}</td>
         </tr>
       </tbody>
-      <div class="showtable-footer card-footer">
+      <div class="show-table-footer card-footer">
         <small class="text-muted">Data de atualização: {{item.Date | date}}</small>
       </div>
     </table>
 
-    <div class="showtable-button--margin text-center">
+    <div class="show-table-button--margin text-center">
       <button class="btn btn-dark" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
         (click)='ApiCovidNova(item.Country)'>Mais informações</button>
     </div>
@@ -127,18 +125,18 @@
 
 <!-- CARD INFO PAÍS -->
 <ng-template #cardInfoP>
-  <div class="countrycards container-fluid">
-    <div class="countrycards__line row">
-      <div class="countrycards__style card border-dark col-md-4" *ngFor="let item of apiCountriesPaginacao">
-        <div class="countrycards__title--black card-header">{{item.Country}}</div>
+  <div class="country-cards container-fluid">
+    <div class="country-cards__line row">
+      <div class="country-cards__style card border-dark col-md-4" *ngFor="let item of apiCountriesPaginacao">
+        <div class="country-cards__title--black card-header">{{item.Country}}</div>
         <div class="card-body">
-          <ul class="countrycards__list">
+          <ul class="country-cards__list">
             <li>Código do país: {{item.CountryCode}}</li>
             <li>Total de casos confirmados: {{item.TotalConfirmed | number}}</li>
-            <li>Total de mortes: <span class="countrycards__item--black">{{item.TotalDeaths | number}}</span></li>
-            <li>Recuperados: <span class="countrycards__item--green">{{item.NewRecovered | number}}</span></li>
+            <li>Total de mortes: <span class="country-cards__item--black">{{item.TotalDeaths | number}}</span></li>
+            <li>Recuperados: <span class="country-cards__item--green">{{item.NewRecovered | number}}</span></li>
           </ul>
-          <button class="countrycardsbtn btn btn-dark" type="button" data-bs-toggle="modal"
+          <button class="country-cards__btn btn btn-dark" type="button" data-bs-toggle="modal"
             data-bs-target="#staticBackdrop" (click)='ApiCovidNova(item.Country)'>
             Mais Informações </button>
         </div>
@@ -148,17 +146,17 @@
 </ng-template>
 
 <!-- MODAL -->
-<div class="moreinfo modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div class="more-info modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
   aria-labelledby="staticBackdropLabel" aria-hidden="true" *ngFor="let item of apiCountriesPaginacao">
   <div class=" modal-dialog modal-dialog-scrollable">
-    <div class="moreinfo--color modal-content">
+    <div class="more-info__style modal-content">
       <div class="modal-header">
-        <h5 class=" moreinfo__title--black modal-title" id="staticBackdropLabel">PAÍS: {{apiMais?.country}}</h5>
+        <h5 class=" more-info__title--black modal-title" id="staticBackdropLabel">PAÍS: {{apiMais?.country}}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p class="moreinfo__text--black">Sobre o País:</p>
-        <ul class="moreinfo__list">
+        <p class="more-info__text--black">Sobre o País:</p>
+        <ul class="more-info__list">
           <li> População: {{apiMais?.population | number}}</li>
           <li> Área total em km: {{apiMais?.sq_km_area | number}}</li>
           <li> Expectativa de vida: {{apiMais?.life_expectancy}}</li>
@@ -166,8 +164,8 @@
           <li> Localização: {{apiMais?.location}}</li>
           <li> Capital: {{apiMais?.capital_city}}</li>
         </ul>
-        <p class="moreinfo__text--black">Sobre a Vacina no País</p>
-        <ul class="moreinfo__list">
+        <p class="more-info__text--black">Sobre a Vacina no País</p>
+        <ul class="more-info__list">
           <li> Vacina Administradas: {{apiMaisVaccine?.administered | number}}</li>
           <li> Pessoas vacinadas: {{apiMaisVaccine?.people_vaccinated | number}}</li>
           <li> Pessoas parcialmente vacinadas: {{apiMaisVaccine?.people_partially_vaccinated | number}}</li>
@@ -184,16 +182,16 @@
 </div>
 
 <!-- PAGINAÇÃO -->
-<div class="buttonpage text-center " *ngIf="carregarMais && infoScreenInput.length==0; else fimpag">
-  <button class="buttonpage--style btn btn-dark" (click)="carrega()">Carregar Mais</button>
+<div class="button-page" *ngIf="carregarMais && infoScreenInput.length==0; else fimpag">
+  <button class="button-page__style btn btn-dark" (click)="carrega()">Carregar Mais</button>
 </div>
 <!-- PAGINAÇÃO TEXTO -->
 <ng-template #fimpag>
-  <h5 *ngIf="infoScreenInput.length==0" class=" pagtext">Não há mais dados para serem carregados.</h5>
+  <h5 *ngIf="infoScreenInput.length==0" class=" pag-text">Não há mais dados para serem carregados.</h5>
 </ng-template>
 
 <!-- FOOTER -->
-<footer class="footerinfo navbar navbar-dark ">
+<footer class="footer-info navbar navbar-dark ">
   <div class="container">
     <a class="navbar-brand" [routerLink]="['/home']">InfoCovid</a>
   </div>

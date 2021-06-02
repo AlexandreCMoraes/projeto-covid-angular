@@ -108,7 +108,7 @@ export class InfoCovidComponent implements OnInit {
   public carrega() {
     let contador = 0
     for (let index = this.apiCountriesPaginacao.length; index < this.apiCountries.length; index++) {
-      console.log(index)
+      // console.log(index)
       // apiCountriesPaginacao começa em 20 (pq tem 20 na tela), apiCountries tem 190
       if (contador < 20) {
         // contador começa em 0 e soma ate 20
