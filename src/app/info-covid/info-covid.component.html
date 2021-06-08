@@ -131,10 +131,13 @@
         <div class="country-cards__title--black card-header">{{item.Country}}</div>
         <div class="card-body">
           <ul class="country-cards__list">
-            <li>Código do país: {{item.CountryCode}}</li>
-            <li>Total de casos confirmados: {{item.TotalConfirmed | number}}</li>
-            <li>Total de mortes: <span class="country-cards__item--black">{{item.TotalDeaths | number}}</span></li>
-            <li>Recuperados: <span class="country-cards__item--green">{{item.NewRecovered | number}}</span></li>
+            <li><span class="country-cards__list--shadow">Código do país:</span> {{item.CountryCode}}</li>
+            <li><span class="country-cards__list--shadow">Total de casos confirmados:</span>
+              {{item.TotalConfirmed | number}}</li>
+            <li><span class="country-cards__list--shadow">Total de mortes:</span> <span
+                class="country-cards__item--black">{{item.TotalDeaths | number}}</span></li>
+            <li><span class="country-cards__list--shadow">Recuperados:</span> <span
+                class="country-cards__item--green">{{item.NewRecovered | number}}</span></li>
           </ul>
           <button class="country-cards__btn btn btn-dark" type="button" data-bs-toggle="modal"
             data-bs-target="#staticBackdrop" (click)='ApiCovidNova(item.Country)'>
@@ -157,18 +160,21 @@
       <div class="modal-body">
         <p class="more-info__text--black">Sobre o País:</p>
         <ul class="more-info__list">
-          <li> População: {{apiMais?.population | number}}</li>
-          <li> Área total em km: {{apiMais?.sq_km_area | number}}</li>
-          <li> Expectativa de vida: {{apiMais?.life_expectancy}}</li>
-          <li> Continente: {{apiMais?.continent}}</li>
-          <li> Localização: {{apiMais?.location}}</li>
-          <li> Capital: {{apiMais?.capital_city}}</li>
+          <li> <span class="more-info__list--shadow">População:</span> {{apiMais?.population | number}}</li>
+          <li> <span class="more-info__list--shadow">Área total em km:</span> {{apiMais?.sq_km_area | number}}</li>
+          <li> <span class="more-info__list--shadow">Expectativa de vida:</span> {{apiMais?.life_expectancy}}</li>
+          <li> <span class="more-info__list--shadow">Continente:</span> {{apiMais?.continent}}</li>
+          <li> <span class="more-info__list--shadow">Localização:</span> {{apiMais?.location}}</li>
+          <li> <span class="more-info__list--shadow">Capital:</span> {{apiMais?.capital_city}}</li>
         </ul>
         <p class="more-info__text--black">Sobre a Vacina no País</p>
         <ul class="more-info__list">
-          <li> Vacina Administradas: {{apiMaisVaccine?.administered | number}}</li>
-          <li> Pessoas vacinadas: {{apiMaisVaccine?.people_vaccinated | number}}</li>
-          <li> Pessoas parcialmente vacinadas: {{apiMaisVaccine?.people_partially_vaccinated | number}}</li>
+          <li> <span class="more-info__list--shadow">Vacina Administradas:</span>
+            {{apiMaisVaccine?.administered | number}}</li>
+          <li> <span class="more-info__list--shadow">Pessoas vacinadas:</span>
+            {{apiMaisVaccine?.people_vaccinated | number}}</li>
+          <li> <span class="more-info__list--shadow">Pessoas parcialmente vacinadas:</span>
+            {{apiMaisVaccine?.people_partially_vaccinated | number}}</li>
         </ul>
         <div class="card-footer">
           <small class="text">Data de atualização: {{item.Date | date}}</small>

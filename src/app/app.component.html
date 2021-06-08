@@ -1,3 +1,7 @@
-<!-- <app-home></app-home> -->
-<!-- <app-info-covid></app-info-covid> -->
-<router-outlet ></router-outlet>
+<!-- <router-outlet ></router-outlet> -->
+<div class="content" >
+  <div *ngIf="routeLoading" class="loading">
+    <h1>Aguarde...</h1>
+  </div>
+  <router-outlet *ngIf="!routeLoading"></router-outlet>
+</div>

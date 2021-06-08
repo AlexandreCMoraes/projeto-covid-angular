@@ -5,7 +5,11 @@
 
 .infocovid__title {
   color: red;
+  font-size: 1.5rem;
   font-weight: bold;
+  text-align: center;
+  text-shadow: 0.5px 0.5px 0.5px black;
+
 }
 
 /* TABLE INFO GLOBAL - CORES DOS NUMEROS API */
@@ -117,6 +121,7 @@
 /* CARD INFO PAÍS  */
 .country-cards__line {
   justify-content: space-around;
+
 }
 
 .country-cards__style {
@@ -125,6 +130,7 @@
   margin-top: 2%;
   margin-bottom: 2%;
   max-width: 18rem;
+  box-shadow: 1px 1px 5px 0.5px black;
 }
 
 .country-cards__style:hover {
@@ -136,6 +142,10 @@
 
 .country-cards__title--black {
   color: black
+}
+
+.country-cards__list--shadow {
+  text-shadow: 0.5px 0.5px 0.5px black;
 }
 
 .country-cards__list li::before {
@@ -174,6 +184,11 @@
 
 .more-info__text--black {
   color: black;
+}
+
+.more-info__list--shadow {
+  text-shadow: 0.5px 0.5px 0.5px black;
+
 }
 
 /* TODO verificar  se precisa da classe "more-info__list" ou ul somente */
